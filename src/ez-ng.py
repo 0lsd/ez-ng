@@ -106,6 +106,9 @@ sudo iw dev wlo1 info
 root = tk.Tk()
 root.title("Easy Networking Gui")
 
+root.option_add("*Background", "black")
+root.option_add("*Foreground", "white")
+
 button_size = {"width": 16, "height": 1}
 
 tabs = ttk.Notebook(root)
@@ -134,7 +137,6 @@ tk.Button(
 tk.Button(
     controls,
     text="arp",
-    bg="#ff9999",
     command=arp,
     **button_size
 ).pack(anchor="w")
@@ -145,7 +147,6 @@ row.pack(anchor="w")
 tk.Button(
     row,
     text="nmap scan",
-    bg="#ff9999",
     command=nmap,
     **button_size
 ).pack(side="left")
@@ -176,7 +177,6 @@ tk.Button(
 tk.Button(
     controls,
     text="wireshark",
-    bg="#add8e6",
     command=open_wireshark,
     **button_size
 ).pack(anchor="w")
@@ -187,7 +187,6 @@ bettercap_row.pack(anchor="w")
 tk.Button(
     bettercap_row,
     text="sniff",
-    bg="#add8e6",
     command=bettercap,
     **button_size
 ).pack(side="left")
@@ -215,7 +214,7 @@ monitor_row.pack(anchor="w")
 tk.Button(
     monitor_row,
     text="monitor on",
-    bg="#99ffaa",
+    bg="#006900",
     command=monitor_on,
     **button_size
 ).pack(side="left")
@@ -223,7 +222,7 @@ tk.Button(
 tk.Button(
     monitor_row,
     text="monitor off",
-    bg="#ff9999",
+    bg="#850000",
     command=monitor_off,
     **button_size
 ).pack(side="left")
@@ -240,7 +239,7 @@ note.pack(fill="both", expand=True)
 tk.Button(
     notepad_frame,
     text="Download",
-    bg="#99ff99",
+    bg="#006900",
     command=save_note,
     **button_size
 ).pack(anchor="w")
