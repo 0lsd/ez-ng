@@ -233,21 +233,26 @@ tk.Button(
     **button_size
 ).pack(anchor="w")
 
+
+monitor_row = tk.Frame(controls)
+monitor_row.pack(anchor="w")
+
 tk.Button(
-    row,
+    monitor_row,
     text="monitor on",
     bg="#99ffaa",
     command=monitor_on,
     **button_size
-).pack(side="top")
+).pack(side="left")
 
 tk.Button(
-    row,
+    monitor_row,
     text="monitor off",
     bg="#ff9999",
     command=monitor_off,
     **button_size
-).pack(side="bottom")
+).pack(side="left")
+
 
 
 output = tk.Text(net, state="disabled")
