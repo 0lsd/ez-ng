@@ -2,13 +2,13 @@
 
 -----------------------------------
 
-**REQUIREMENTS**:
+**REQUIREMENTS**
 
 1. Debian based OS
 
 2. READ THE FUCKING README
 
-**INSTALL**:
+**INSTALL**
 
 1. Navigate to '/ez-ng/install/'
 
@@ -16,7 +16,7 @@
 
 -----------------------------------
 
-**LAUNCH**:
+**LAUNCH**
 
 1. Navigate to '/ez-ng/'
 
@@ -24,7 +24,7 @@
 
 -----------------------------------
 
-**UNINSTALL**:
+**UNINSTALL**
 
 1. Navigate to '/ez-ng/uninstall'
 
@@ -32,6 +32,6 @@
 
 -----------------------------------
 
-**NOTE**:
+**NOTE**
 
 Tested on Debian 13 xfce4 desktop
