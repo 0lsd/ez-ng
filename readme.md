@@ -1,25 +1,23 @@
-EASY NETWORKING GUI
+*EASY NETWORKING GUI*
 
-BUILD:
+**BUILD**:
 
 1. Navigate to '/ez-ng/build/'
 
 2. 'chmod +x build.sh'
 
-LAUNCH:
+**LAUNCH**:
 
 1. Navigate to '/ez-ng/'
 
 2. sudo ./ez-ng.sh  OR  ./ez-ng.sh
 
-UNINSTALL:
-
-**CHECK '/uninstall/uninstall.sh' BEFORE UNINSTALLING**
+**UNINSTALL**:
 
 1. Navigate to '/ez-ng/uninstall'
 
 2. ./uninstall.sh
 
-NOTE:
+**NOTE**:
 
 Tested on Debian 13 xfce4 desktop
