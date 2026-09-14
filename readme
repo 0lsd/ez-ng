@@ -10,6 +10,12 @@ LAUNCH:
 
 1. Navigate to '/ez-ng/'
 
-2. sudo ./ez-ng.sh
+2. sudo ./ez-ng.sh  OR  ./ez-ng.sh
 
-2.1 ./ez-ng.sh
+UNINSTALL:
+
+**CHECK '/uninstall/uninstall.sh' BEFORE UNINSTALLING**
+
+1. Navigate to '/ez-ng/uninstall'
+
+2. ./uninstall.sh
