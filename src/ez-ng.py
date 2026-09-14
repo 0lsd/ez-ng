@@ -104,41 +104,20 @@ sudo iw dev wlo1 info
     ])
 
 def tor_on():
-    subprocess.Popen(
-        ["tor-on.sh"],
-        cwd=os.path.dirname(os.path.abspath(__file__))
-    )
+    subprocess.Popen(["sudo", "systemctl", "enable", "--now", "tor"])
 
 def tor_off():
-    subprocess.Popen(
-        ["tor-off.sh"],
-        cwd=os.path.dirname(os.path.abspath(__file__))
-    )
+    subprocess.Popen(["sudo", "systemctl", "disable", "--now", "tor"])
 
 def update_tor_status():
-    try:
-        result = subprocess.run(
-            ["systemctl", "is-active", "--quiet", "tor"],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
+    result = subprocess.run(
+        ["systemctl", "is-active", "--quiet", "tor"]
+    )
 
-        if result.returncode == 0:
-            tor_status.config(
-                text="TOR STATUS: ENABLED",
-                fg="#00ff00"
-            )
-        else:
-            tor_status.config(
-                text="TOR STATUS: DISABLED",
-                fg="#ff0000"
-            )
-
-    except Exception:
-        tor_status.config(
-            text="TOR STATUS: DISABLED",
-            fg="#ff0000"
-        )
+    if result.returncode == 0:
+        tor_status.config(text="TOR STATUS", fg="#00ff00")
+    else:
+        tor_status.config(text="TOR STATUS", fg="#ff0000")
 
     root.after(1000, update_tor_status)
 
