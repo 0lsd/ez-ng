@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 import subprocess
-import os
 from datetime import datetime
 
 
@@ -52,11 +51,8 @@ def open_wireshark():
 
 def save_note():
     filename = datetime.now().strftime("ezng-report_%Y-%m-%d-%H-%M-%S.txt")
-    
-    os.makedirs("report", exist_ok=True)
-    full_path = os.path.join("report", filename)
-    
-    with open(full_path, "w", encoding="utf-8") as file:
+
+    with open(filename, "w", encoding="utf-8") as file:
         file.write(note.get("1.0", "end-1c"))
 
 
