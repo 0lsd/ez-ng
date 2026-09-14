@@ -262,11 +262,11 @@ tk.Button(
     **button_size
 ).pack(anchor="w")
 
-test_frame = tk.Frame(tabs)
-tabs.add(test_frame, text="More")
+more_frame = tk.Frame(tabs)
+tabs.add(more_frame, text="More")
 
 tk.Button(
-    test_frame,
+    more_frame,
     text="tor services on",
     command=tor_on,
     bg="#791E7C",
@@ -274,7 +274,7 @@ tk.Button(
 ).pack(anchor="e", padx=10, pady=10)
 
 tk.Button(
-    test_frame,
+    more_frame,
     text="tor services off",
     command=tor_off,
     bg="#791E7C",
@@ -282,7 +282,7 @@ tk.Button(
 ).pack(anchor="e", padx=10, pady=10)
 
 tor_status = tk.Label(
-    test_frame,
+    more_frame,
     text="TOR STATUS: CHECKING...",
     fg="yellow",
     bg="black",
