@@ -72,7 +72,6 @@ net.sniff on
     ])
 
 def monitor_on():
-
     script = f"""sudo ip link set wlo1 down
 sudo iw dev wlo1 set type monitor
 sudo ip link set wlo1 up
@@ -88,7 +87,6 @@ sudo iw dev wlo1 info
     ])
 
 def monitor_off():
-
     script = f"""sudo ip link set wlo1 down
 sudo iw dev wlo1 set type managed
 sudo ip link set wlo1 up
@@ -256,7 +254,7 @@ note.pack(fill="both", expand=True)
 
 tk.Button(
     notepad_frame,
-    text="Download",
+    text="download",
     bg="#006900",
     command=save_note,
     **button_size
