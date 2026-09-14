@@ -119,6 +119,7 @@ sudo iw dev wlo1 info
 
 
 root = tk.Tk()
+root.title("Easy Networking Gui")
 
 button_size = {"width": 16, "height": 1}
 
@@ -228,7 +229,6 @@ tk.Button(
 tk.Button(
     controls,
     text="terminal",
-    bg="#ff9999",
     command=open_terminal,
     **button_size
 ).pack(anchor="w")
