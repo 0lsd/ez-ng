@@ -156,6 +156,7 @@ tk.Button(
 tk.Button(
     controls,
     text="wireshark",
+    bg="#add8e6",
     command=open_wireshark,
     **button_size
 ).pack(anchor="w")
@@ -186,6 +187,7 @@ tk.Button(
 tk.Button(
     controls,
     text="terminal",
+    bg="#ff9999",
     command=open_terminal,
     **button_size
 ).pack(anchor="w")
@@ -204,6 +206,7 @@ note.pack(fill="both", expand=True)
 tk.Button(
     notepad_frame,
     text="Download",
+    bg="#99ff99",
     command=save_note,
     **button_size
 ).pack(anchor="w")
