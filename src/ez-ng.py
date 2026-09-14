@@ -265,15 +265,6 @@ tk.Button(
 more_frame = tk.Frame(tabs)
 tabs.add(more_frame, text="More")
 
-label = tk.Label(more_frame, text="More")
-label.pack()
-
-label = tk.Label(controls, text="Network")
-label.pack()
-
-label = tk.Label(notepad_frame, text="Notepad")
-label.pack()
-
 tk.Button(
     more_frame,
     text="tor services on",
