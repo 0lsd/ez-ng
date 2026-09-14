@@ -275,7 +275,7 @@ tk.Button(
 
 tk.Button(
     test_frame,
-    text="tor services on",
+    text="tor services off",
     command=tor_off,
     bg="#791E7C",
     **button_size
