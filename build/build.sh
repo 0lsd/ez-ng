@@ -7,7 +7,7 @@ cd uninstall
 chmod +x uninstall.sh
 cd ..
 cd extras
-chmod +x monitor-mode.sh
+chmod +x monitor-wlo1.sh
 cd ..
 
 sudo apt install python3

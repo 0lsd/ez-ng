@@ -18,6 +18,10 @@
 
 2. ./uninstall.sh
 
+**EXTRAS**
+
+1. sudo ./monitor-wlo1.sh
+
 **NOTE**:
 
 Tested on Debian 13 xfce4 desktop
