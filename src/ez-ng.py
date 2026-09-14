@@ -84,6 +84,40 @@ net.sniff on
     ])
 
 
+def monitor_on():
+
+    script = f"""sudo ip link set wlo1 down
+sudo iw dev wlo1 set type monitor
+sudo ip link set wlo1 up
+sudo iw dev wlo1 info
+"""
+
+    subprocess.Popen([
+        "x-terminal-emulator",
+        "-e",
+        "bash",
+        "-c",
+        f"echo '{script}' | bash; exec bash"
+    ])
+
+
+def monitor_off():
+
+    script = f"""sudo ip link set wlo1 down
+sudo iw dev wlo1 set type managed
+sudo ip link set wlo1 up
+sudo iw dev wlo1 info
+"""
+
+    subprocess.Popen([
+        "x-terminal-emulator",
+        "-e",
+        "bash",
+        "-c",
+        f"echo '{script}' | bash; exec bash"
+    ])
+
+
 root = tk.Tk()
 
 button_size = {"width": 16, "height": 1}
@@ -131,6 +165,22 @@ tk.Button(
     text="nmap scan",
     bg="#ff9999",
     command=nmap,
+    **button_size
+).pack(side="left")
+
+tk.Button(
+    row,
+    text="monitor mode on",
+    bg="#ff9999",
+    command=monitor_on,
+    **button_size
+).pack(side="left")
+
+tk.Button(
+    row,
+    text="monitor mode off",
+    bg="#ff9999",
+    command=monitor_off,
     **button_size
 ).pack(side="left")
 
