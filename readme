@@ -1,1 +1,15 @@
 EASY NETWORKING GUI
+
+BUILD:
+
+1. Navigate to '/ez-ng/build/'
+
+2. 'chmod +x build.sh'
+
+LAUNCH:
+
+1. Navigate to '/ez-ng/'
+
+2. sudo ./ez-ng.sh
+
+2.1 ./ez-ng.sh
