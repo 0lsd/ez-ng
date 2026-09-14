@@ -168,21 +168,6 @@ tk.Button(
     **button_size
 ).pack(side="left")
 
-tk.Button(
-    row,
-    text="monitor mode on",
-    bg="#ff9999",
-    command=monitor_on,
-    **button_size
-).pack(side="left")
-
-tk.Button(
-    row,
-    text="monitor mode off",
-    bg="#ff9999",
-    command=monitor_off,
-    **button_size
-).pack(side="left")
 
 ip = tk.Entry(row)
 ip.pack(side="left")
@@ -247,10 +232,25 @@ tk.Button(
     **button_size
 ).pack(anchor="w")
 
+tk.Button(
+    row,
+    text="monitor on",
+    bg="#ff9999",
+    command=monitor_on,
+    **button_size
+).pack(side="bottom")
+
+tk.Button(
+    row,
+    text="monitor off",
+    bg="#ff9999",
+    command=monitor_off,
+    **button_size
+).pack(side="bottom")
+
 
 output = tk.Text(net, state="disabled")
 output.pack(fill="both", expand=True)
-
 
 notepad_frame = tk.Frame(tabs)
 tabs.add(notepad_frame, text="Notepad")
