@@ -20,7 +20,7 @@
 
 1. Navigate to '/ez-ng/'
 
-2. sudo ./ez-ng.sh  OR  ./ez-ng.sh
+2. 'sudo ./ez-ng.sh'  OR  './ez-ng.sh'
 
 -----------------------------------
 
@@ -28,7 +28,7 @@
 
 1. Navigate to '/ez-ng/uninstall'
 
-2. ./uninstall.sh
+2. './uninstall.sh'
 
 -----------------------------------
 
