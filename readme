@@ -19,3 +19,7 @@ UNINSTALL:
 1. Navigate to '/ez-ng/uninstall'
 
 2. ./uninstall.sh
+
+NOTE:
+
+Tested on Debian 13 xfce4 desktop
