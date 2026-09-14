@@ -271,7 +271,7 @@ tk.Button(
     command=tor_on,
     bg="#791E7C",
     **button_size
-).pack(anchor="e", padx=10, pady=10)
+).pack(anchor="e")
 
 tk.Button(
     more_frame,
@@ -279,7 +279,7 @@ tk.Button(
     command=tor_off,
     bg="#791E7C",
     **button_size
-).pack(anchor="e", padx=10, pady=10)
+).pack(anchor="e")
 
 tor_status = tk.Label(
     more_frame,
