@@ -183,6 +183,7 @@ tk.Button(
     **button_size
 ).pack(side="left")
 
+
 bssid = tk.Entry(wifi_row)
 bssid.pack(side="left")
 
@@ -213,9 +214,9 @@ tk.Button(
     **button_size
 ).pack(side="left")
 
+
 bettercap_ip = tk.Entry(bettercap_row)
 bettercap_ip.pack(side="left")
-
 
 tk.Button(
     controls,
@@ -235,10 +236,10 @@ tk.Button(
 tk.Button(
     row,
     text="monitor on",
-    bg="#ff9999",
+    bg="#99ffaa",
     command=monitor_on,
     **button_size
-).pack(side="bottom")
+).pack(side="top")
 
 tk.Button(
     row,
