@@ -53,8 +53,11 @@ def open_wireshark():
 def save_note():
     filename = datetime.now().strftime("ezng-report_%Y-%m-%d-%H-%M-%S.txt")
     
-    os.makedirs("report", exist_ok=True)
-    full_path = os.path.join("report", filename)
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    reports_dir = os.path.join(parent_dir, "reports")
+    os.makedirs(reports_dir, exist_ok=True)
+    
+    full_path = os.path.join(reports_dir, filename)
     
     with open(full_path, "w", encoding="utf-8") as file:
         file.write(note.get("1.0", "end-1c"))
