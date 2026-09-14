@@ -105,13 +105,13 @@ sudo iw dev wlo1 info
 
 def tor_on():
     subprocess.Popen(
-        ["./tor-on.sh"],
+        ["tor-on.sh"],
         cwd=os.path.dirname(os.path.abspath(__file__))
     )
 
 def tor_off():
     subprocess.Popen(
-        ["./tor-off.sh"],
+        ["tor-off.sh"],
         cwd=os.path.dirname(os.path.abspath(__file__))
     )
 
