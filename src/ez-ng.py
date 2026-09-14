@@ -4,51 +4,40 @@ import subprocess
 import os
 from datetime import datetime
 
-
 def run_command(command):
     output.config(state="normal")
     output.delete("1.0", "end")
     output.insert("end", subprocess.check_output(command, text=True))
     output.config(state="disabled")
 
-
 def scan():
     run_command(["nmcli", "device", "wifi", "list"])
-
 
 def nmap():
     run_command(["sudo", "nmap", "-sn", ip.get()])
 
-
 def arp():
     run_command(["arp"])
-
 
 def ip_route():
     run_command(["ip", "route"])
 
-
 def wifi_connect():
     run_command(["nmcli", "device", "wifi", "connect", bssid.get()])
 
-
 def wifi_disconnect():
     run_command(["nmcli", "device", "disconnect", "wlo1"])
-
 
 def copy_output():
     root.clipboard_clear()
     root.clipboard_append(output.get("1.0", "end-1c"))
     root.update()
 
-
 def open_terminal():
     subprocess.Popen(["x-terminal-emulator"])
 
-
 def open_wireshark():
     subprocess.Popen(["sudo", "wireshark"])
-
 
 def save_note():
     filename = datetime.now().strftime("ezng-report_%Y-%m-%d-%H-%M-%S.txt")
@@ -62,7 +51,6 @@ def save_note():
     with open(full_path, "w", encoding="utf-8") as file:
         file.write(note.get("1.0", "end-1c"))
 
-
 def bettercap():
     target_ip = bettercap_ip.get()
 
@@ -74,7 +62,7 @@ set arp.spoof.targets {target_ip}
 arp.spoof on
 net.sniff on
 """
-
+    
     subprocess.Popen([
         "x-terminal-emulator",
         "-e",
@@ -82,7 +70,6 @@ net.sniff on
         "-c",
         f"echo '{script}' | bash; exec bash"
     ])
-
 
 def monitor_on():
 
@@ -100,7 +87,6 @@ sudo iw dev wlo1 info
         f"echo '{script}' | bash; exec bash"
     ])
 
-
 def monitor_off():
 
     script = f"""sudo ip link set wlo1 down
@@ -117,23 +103,19 @@ sudo iw dev wlo1 info
         f"echo '{script}' | bash; exec bash"
     ])
 
-
 root = tk.Tk()
 root.title("Easy Networking Gui")
 
 button_size = {"width": 16, "height": 1}
 
-
 tabs = ttk.Notebook(root)
 tabs.pack(fill="both", expand=True)
-
 
 net = tk.Frame(tabs)
 tabs.add(net, text="Network")
 
 controls = tk.Frame(net)
 controls.pack(side="left", anchor="nw")
-
 
 tk.Button(
     controls,
@@ -157,7 +139,6 @@ tk.Button(
     **button_size
 ).pack(anchor="w")
 
-
 row = tk.Frame(controls)
 row.pack(anchor="w")
 
@@ -169,10 +150,8 @@ tk.Button(
     **button_size
 ).pack(side="left")
 
-
 ip = tk.Entry(row)
 ip.pack(side="left")
-
 
 wifi_row = tk.Frame(controls)
 wifi_row.pack(anchor="w")
@@ -183,7 +162,6 @@ tk.Button(
     command=wifi_connect,
     **button_size
 ).pack(side="left")
-
 
 bssid = tk.Entry(wifi_row)
 bssid.pack(side="left")
@@ -203,7 +181,6 @@ tk.Button(
     **button_size
 ).pack(anchor="w")
 
-
 bettercap_row = tk.Frame(controls)
 bettercap_row.pack(anchor="w")
 
@@ -214,7 +191,6 @@ tk.Button(
     command=bettercap,
     **button_size
 ).pack(side="left")
-
 
 bettercap_ip = tk.Entry(bettercap_row)
 bettercap_ip.pack(side="left")
@@ -232,7 +208,6 @@ tk.Button(
     command=open_terminal,
     **button_size
 ).pack(anchor="w")
-
 
 monitor_row = tk.Frame(controls)
 monitor_row.pack(anchor="w")
@@ -253,8 +228,6 @@ tk.Button(
     **button_size
 ).pack(side="left")
 
-
-
 output = tk.Text(net, state="disabled")
 output.pack(fill="both", expand=True)
 
@@ -271,6 +244,5 @@ tk.Button(
     command=save_note,
     **button_size
 ).pack(anchor="w")
-
 
 root.mainloop()
