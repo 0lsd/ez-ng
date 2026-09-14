@@ -103,6 +103,45 @@ sudo iw dev wlo1 info
         f"echo '{script}' | bash; exec bash"
     ])
 
+def tor_on():
+    subprocess.Popen(
+        ["./tor-on.sh"],
+        cwd=os.path.dirname(os.path.abspath(__file__))
+    )
+
+def tor_off():
+    subprocess.Popen(
+        ["./tor-off.sh"],
+        cwd=os.path.dirname(os.path.abspath(__file__))
+    )
+
+def update_tor_status():
+    try:
+        result = subprocess.run(
+            ["systemctl", "is-active", "--quiet", "tor"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+
+        if result.returncode == 0:
+            tor_status.config(
+                text="TOR STATUS: ENABLED",
+                fg="#00ff00"
+            )
+        else:
+            tor_status.config(
+                text="TOR STATUS: DISABLED",
+                fg="#ff0000"
+            )
+
+    except Exception:
+        tor_status.config(
+            text="TOR STATUS: DISABLED",
+            fg="#ff0000"
+        )
+
+    root.after(1000, update_tor_status)
+
 root = tk.Tk()
 root.title("Easy Networking Gui")
 
@@ -243,5 +282,42 @@ tk.Button(
     command=save_note,
     **button_size
 ).pack(anchor="w")
+
+test_frame = tk.Frame(tabs)
+tabs.add(test_frame, text="More")
+
+tk.Button(
+    test_frame,
+    text="tor services on",
+    command=tor_on,
+    bg="#791E7C",
+    **button_size
+).pack(anchor="e", padx=10, pady=10)
+
+tk.Button(
+    test_frame,
+    text="tor services on",
+    command=tor_off,
+    bg="#791E7C",
+    **button_size
+).pack(anchor="e", padx=10, pady=10)
+
+tor_status = tk.Label(
+    test_frame,
+    text="TOR STATUS: CHECKING...",
+    fg="yellow",
+    bg="black",
+)
+
+tor_status.pack(
+    side="bottom",
+    anchor="e",
+    padx=10,
+    pady=10
+)
+
+update_tor_status()
+
+root.mainloop()
 
 root.mainloop()
