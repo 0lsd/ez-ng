@@ -208,7 +208,7 @@ bettercap_row.pack(anchor="w")
 
 tk.Button(
     bettercap_row,
-    text="arp-spoof sniff",
+    text="sniff",
     bg="#add8e6",
     command=bettercap,
     **button_size
