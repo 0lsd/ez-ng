@@ -6,7 +6,6 @@ cd ..
 sudo rm -rf ez-ng
 cd ..
 
-sudo apt remove python3
 sudo apt remove python3-tk
 sudo apt remove nmap
 sudo apt remove arp-scan
