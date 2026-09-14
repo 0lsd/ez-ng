@@ -54,7 +54,8 @@ def save_note():
 def bettercap():
     target_ip = bettercap_ip.get()
 
-    script = f"""sudo bettercap iface wlan0
+    script = f"""
+sudo bettercap iface wlan0
 net.probe on
 net.show
 set arp.spoof.fullduplex true
@@ -72,7 +73,8 @@ net.sniff on
     ])
 
 def monitor_on():
-    script = f"""sudo ip link set wlo1 down
+    script = f"""
+sudo ip link set wlo1 down
 sudo iw dev wlo1 set type monitor
 sudo ip link set wlo1 up
 sudo iw dev wlo1 info
@@ -87,7 +89,8 @@ sudo iw dev wlo1 info
     ])
 
 def monitor_off():
-    script = f"""sudo ip link set wlo1 down
+    script = f"""
+sudo ip link set wlo1 down
 sudo iw dev wlo1 set type managed
 sudo ip link set wlo1 up
 sudo iw dev wlo1 info
