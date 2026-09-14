@@ -8,11 +8,11 @@
 
 2. READ THE FUCKING README
 
-**BUILD**:
+**INSTALL**:
 
-1. Navigate to '/ez-ng/build/'
+1. Navigate to '/ez-ng/install/'
 
-2. 'chmod +x build.sh'
+2. 'chmod +x install.sh'
 
 -----------------------------------
 

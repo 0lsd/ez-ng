@@ -4,7 +4,7 @@ sudo apt upgrade
 cd ..
 cd ..
 sudo rm -rf ez-ng
-cd ..
+cd ~
 
 sudo apt remove python3-tk
 sudo apt remove nmap
