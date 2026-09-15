@@ -123,7 +123,7 @@ def update_tor_status():
     root.after(1000, update_tor_status)
 
 root = tk.Tk()
-root.title("Easy Networking Gui")
+root.title("Easy Networking GUI")
 
 root.option_add("*Background", "black")
 root.option_add("*Foreground", "white")
