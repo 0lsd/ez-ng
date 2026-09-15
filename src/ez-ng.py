@@ -55,7 +55,7 @@ def bettercap():
     target_ip = bettercap_ip.get()
 
     script = f"""
-sudo bettercap iface wlan0
+sudo bettercap iface wlo1
 net.probe on
 net.show
 set arp.spoof.fullduplex true
