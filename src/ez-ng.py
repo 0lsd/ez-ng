@@ -128,7 +128,13 @@ root.title("Easy Networking Gui")
 root.option_add("*Background", "black")
 root.option_add("*Foreground", "white")
 
-button_size = {"width": 16, "height": 1}
+button_size = {
+    "width": 16,
+    "height": 1,
+    "relief": tk.RAISED,
+    "borderwidth": 2,
+    "highlightthickness": 0
+}
 
 tabs = ttk.Notebook(root)
 tabs.pack(fill="both", expand=True)
@@ -297,7 +303,5 @@ tor_status.pack(
 )
 
 update_tor_status()
-
-root.mainloop()
 
 root.mainloop()

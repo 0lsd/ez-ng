@@ -2,7 +2,7 @@
 
 -----------------------------------
 
-**NETWORK**
+**NETWORK (N)**
 
 1. 'scan wifi' button
     - def scan()
@@ -40,12 +40,12 @@
 12. 'monitor off' button
     - def monitor_off()
 
-**NOTEPAD**
+**NOTEPAD (NP)**
 
 1. 'download" button
     - def save_note()
 
-**MORE**
+**MORE (M)**
 
 1. 'tor services on' button
     - def tor_off()
@@ -55,3 +55,4 @@
 
 3. 'TOR STATUS'
     - def update_tor_status()
+    
