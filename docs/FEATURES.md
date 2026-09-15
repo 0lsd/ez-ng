@@ -5,8 +5,7 @@
 **NETWORK (N)**
 
 1. 'scan wifi' button
-
-    def scan()
+    - def scan()
 
 2. 'ip route' button
     - def ip_route()
