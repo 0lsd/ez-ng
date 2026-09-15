@@ -73,36 +73,77 @@ net.sniff on
     ])
 
 def monitor_on():
-    script = f"""
-sudo ip link set wlo1 down
-sudo iw dev wlo1 set type monitor
-sudo ip link set wlo1 up
-sudo iw dev wlo1 info
-"""
+    try:
+        subprocess.run(
+            ["sudo", "ip", "link", "set", "wlo1", "down"],
+            check=True
+        )
+        subprocess.run(
+            ["sudo", "iw", "dev", "wlo1", "set", "type", "monitor"],
+            check=True
+        )
+        subprocess.run(
+            ["sudo", "ip", "link", "set", "wlo1", "up"],
+            check=True
+        )
 
-    subprocess.Popen([
-        "xterm",
-        "-e",
-        "bash",
-        "-c",
-        f"echo '{script}' | bash; exec bash"
-    ])
+        update_monitor_status()
+
+    except subprocess.CalledProcessError as e:
+        output.config(state="normal")
+        output.delete("1.0", "end")
+        output.insert("end", f"Monitor mode ON failed:\n{e}\n")
+        output.config(state="disabled")
 
 def monitor_off():
-    script = f"""
-sudo ip link set wlo1 down
-sudo iw dev wlo1 set type managed
-sudo ip link set wlo1 up
-sudo iw dev wlo1 info
-"""
+    try:
+        subprocess.run(
+            ["sudo", "ip", "link", "set", "wlo1", "down"],
+            check=True
+        )
+        subprocess.run(
+            ["sudo", "iw", "dev", "wlo1", "set", "type", "managed"],
+            check=True
+        )
+        subprocess.run(
+            ["sudo", "ip", "link", "set", "wlo1", "up"],
+            check=True
+        )
 
-    subprocess.Popen([
-        "xterm",
-        "-e",
-        "bash",
-        "-c",
-        f"echo '{script}' | bash; exec bash"
-    ])
+        update_monitor_status()
+
+    except subprocess.CalledProcessError as e:
+        output.config(state="normal")
+        output.delete("1.0", "end")
+        output.insert("end", f"Monitor mode OFF failed:\n{e}\n")
+        output.config(state="disabled")
+
+def update_monitor_status():
+    try:
+        result = subprocess.run(
+            ["iw", "dev", "wlo1", "info"],
+            capture_output=True,
+            text=True
+        )
+
+        if "type monitor" in result.stdout:
+            update_monitor_status.config(
+                text="MONITOR MODE: ENABLED",
+                fg="#ff0000"
+            )
+        else:
+            update_monitor_status.config(
+                text="MONITOR MODE: DISABLED",
+                fg="#00ff00"
+            )
+
+    except Exception:
+        update_monitor_status.config(
+            text="MONITOR MODE: UNKNOWN",
+            fg="yellow"
+        )
+
+    root.after(1000, update_monitor_status)
 
 def tor_on():
     subprocess.Popen(["sudo", "systemctl", "enable", "--now", "tor"])
@@ -236,21 +277,23 @@ tk.Button(
 monitor_row = tk.Frame(controls)
 monitor_row.pack(anchor="w")
 
-tk.Button(
+monitor_on_button = tk.Button(
     monitor_row,
     text="monitor on",
     bg="#006900",
     command=monitor_on,
     **button_size
-).pack(side="left")
+)
+monitor_on_button.pack(side="left")
 
-tk.Button(
+monitor_off_button = tk.Button(
     monitor_row,
     text="monitor off",
     bg="#850000",
     command=monitor_off,
     **button_size
-).pack(side="left")
+)
+monitor_off_button.pack(side="left")
 
 output = tk.Text(net, state="disabled")
 output.pack(fill="both", expand=True)
@@ -303,5 +346,6 @@ tor_status.pack(
 )
 
 update_tor_status()
+update_monitor_status()
 
 root.mainloop()
