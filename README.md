@@ -34,4 +34,6 @@
 
 **NOTE**
 
-Tested on Debian 13 xfce4 desktop
+1. Tested on Debian 13 xfce4 desktop
+
+2. Uses 'xterm', automatically installed with Debian 13

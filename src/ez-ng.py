@@ -34,7 +34,7 @@ def copy_output():
     root.update()
 
 def open_terminal():
-    subprocess.Popen(["x-terminal-emulator"])
+    subprocess.Popen(["xterm"])
 
 def open_wireshark():
     subprocess.Popen(["sudo", "wireshark"])
@@ -65,7 +65,7 @@ net.sniff on
 """
     
     subprocess.Popen([
-        "x-terminal-emulator",
+        "xterm",
         "-e",
         "bash",
         "-c",
@@ -81,7 +81,7 @@ sudo iw dev wlo1 info
 """
 
     subprocess.Popen([
-        "x-terminal-emulator",
+        "xterm",
         "-e",
         "bash",
         "-c",
@@ -97,7 +97,7 @@ sudo iw dev wlo1 info
 """
 
     subprocess.Popen([
-        "x-terminal-emulator",
+        "xterm",
         "-e",
         "bash",
         "-c",
@@ -128,13 +128,7 @@ root.title("Easy Networking Gui")
 root.option_add("*Background", "black")
 root.option_add("*Foreground", "white")
 
-button_size = {
-    "width": 16,
-    "height": 1,
-    "relief": tk.RAISED,
-    "borderwidth": 2,
-    "highlightthickness": 0
-}
+button_size = {"width": 16, "height": 1}
 
 tabs = ttk.Notebook(root)
 tabs.pack(fill="both", expand=True)
