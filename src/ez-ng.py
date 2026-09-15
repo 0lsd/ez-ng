@@ -17,16 +17,16 @@ def nmap():
     run_command(["sudo", "nmap", "-sn", ip.get()])
 
 def arp():
-    run_command(["arp"])
+    run_command(["sudo", "arp"])
 
 def ip_route():
     run_command(["ip", "route"])
 
 def wifi_connect():
-    run_command(["nmcli", "device", "wifi", "connect", bssid.get()])
+    run_command(["sudo", "nmcli", "device", "wifi", "connect", bssid.get()])
 
 def wifi_disconnect():
-    run_command(["nmcli", "device", "disconnect", "wlo1"])
+    run_command(["sudo", "nmcli", "device", "disconnect", "wlo1"])
 
 def copy_output():
     root.clipboard_clear()
