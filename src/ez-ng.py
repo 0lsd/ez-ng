@@ -77,7 +77,7 @@ def monitor_on():
 sudo ip link set wlo1 down
 sudo iw dev wlo1 set type monitor
 sudo ip link set wlo1 up
-sudo iw dev wlo1 info
+sudo iw dev
 """
 
     subprocess.Popen([
@@ -93,7 +93,7 @@ def monitor_off():
 sudo ip link set wlo1 down
 sudo iw dev wlo1 set type managed
 sudo ip link set wlo1 up
-sudo iw dev wlo1 info
+sudo iw dev
 """
 
     subprocess.Popen([
