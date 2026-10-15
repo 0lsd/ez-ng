@@ -14,7 +14,7 @@ def scan():
     run_command(["nmcli", "device", "wifi", "list"])
 
 def drblue():
-    run_command(["sudo", "python3", "drblueshutdown.py"])
+    subprocess.Popen(["sudo", "python3", "drblueshutdown.py"])
 
 def nmap():
     run_command(["sudo", "nmap", "-sn", ip.get()])

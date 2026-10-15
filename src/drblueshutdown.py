@@ -1,4 +1,3 @@
-cat > drblueshutdown.py << 'EOF'
 #!/usr/bin/env python3
 import subprocess
 import time
@@ -91,4 +90,3 @@ if __name__ == "__main__":
     if 0 <= idx < len(devices):
         addr, name = devices[idx]
         spam_device(addr)
-EOF
