@@ -13,6 +13,9 @@ def run_command(command):
 def scan():
     run_command(["nmcli", "device", "wifi", "list"])
 
+def drblue():
+    run_command(["sudo", "python3", "drblueshutdown.py"])
+
 def nmap():
     run_command(["sudo", "nmap", "-sn", ip.get()])
 
@@ -149,6 +152,13 @@ tk.Button(
     controls,
     text="scan wifi",
     command=scan,
+    **button_size
+).pack(anchor="w")
+
+tk.Button(
+    controls,
+    text="drblue",
+    command=drblue,
     **button_size
 ).pack(anchor="w")
 
