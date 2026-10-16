@@ -16,7 +16,9 @@ sudo apt install arp-scan -y
 sudo apt install bettercap -y
 sudo apt install wireshark -y
 sudo apt install tor -y
-sudo apt install bluez bluetooth-utils -y
+sudo apt install bluez bluetooth bluez-tools blueman -y
+sudo systemctl start bluetooth
+sudo systemctl enable bluetoot
 
 sudo apt update
 sudo apt upgrade
